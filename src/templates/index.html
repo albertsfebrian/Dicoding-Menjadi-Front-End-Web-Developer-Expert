@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RestoRate</title>
+	<link rel="icon" href="./favicon.png">
+	<link rel="apple-touch-icon" href="./favicon.png">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+	<a href="#main-content" class="skip-link">Menuju ke konten</a>
+	<header>
+		<nav class="container">
+			<div><a href="/" class="logo">RestoRate</a></div>
+			<div>
+				<button aria-label="show menu" id="hamburger-btn">
+					<i class="fas fa-bars fa-lg"></i>
+				</button>
+				<ul id="menu-list">
+					<button aria-label="close menu" id="close-btn">
+						<i class="fas fa-times fa-2x"></i>
+					</button>
+					<li class="menu-item">
+						<a href="/">Home</a>
+					</li>
+					<li class="menu-item">
+						<a href="/">Favorite</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://github.com/albertsfebrian" target="_blank" rel="noopener noreferrer">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div class="hero">
+			<div class='overlay'></div>
+			<div class="hero-content">
+				<div class="container">
+					<h1>Temukan makanan & minuman terbaik di sini</h1>
+					<div class="search-container">
+						<div id="hero-search-bar">
+							<div class="input-group">
+								<input type="text" placeholder="Cari Makanan...">
+								<button aria-label="cari">
+									<i class="fas fa-search fa-lg"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="./hero.jpg" alt="Hero Image">
+		</div>
+		<div id="main-content" class="container">
+			<article>
+				<h1 class="title" tabindex="0">Cari di Kota</h1>
+				<section id="city-list"></section>
+			</article>
+			<article>
+				<h1 class="title" tabindex="0">Rekomendasi Restoran</h1>
+				<section id="restaurant-list"></section>
+			</article>
+		</div>
+	</main>
+	<footer>
+		<span>Copyright &copy; 2021 - RestoRate</span>
+	</footer>
+</body>
+
+</html>
