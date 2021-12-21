@@ -84,8 +84,8 @@ export const createUnlikeButton = () => `
 
 export const createSkeletonList = (count) => {
   let renderSkeleton = '';
-  [...Array(count)].forEach( item => {
-    renderSkeleton += `<div class="card-loader"></div>`
+  [...Array(count)].forEach(item => {
+    renderSkeleton += '<div class="card-loader"></div>'
   })
   return renderSkeleton
 }

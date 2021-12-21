@@ -16,12 +16,12 @@ const Detail = {
           <span class="title" tabindex="0">Menu Makanan</span>
           <div class="restaurant-menu" id="restaurant-foods"></div>
         </section>
-        <section class="loading-menu-section" id="loading-foods">${createMenuSectionLoader('Menu Makanan',10)}</section>
+        <section class="loading-menu-section" id="loading-foods">${createMenuSectionLoader('Menu Makanan', 10)}</section>
         <section id="drinks-section">
           <span class="title" tabindex="0">Menu Minuman</span>
           <div class="restaurant-menu" id="restaurant-drinks"></div>
         </section>
-        <section class="loading-menu-section" id="loading-drinks">${createMenuSectionLoader('Menu Minuman',10)}</section>
+        <section class="loading-menu-section" id="loading-drinks">${createMenuSectionLoader('Menu Minuman', 10)}</section>
         <section id="reviews-section">
           <span class="title" tabindex="0">Review</span>
           <div class="restaurant-review" id="restaurant-reviews"></div>

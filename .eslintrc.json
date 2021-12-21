@@ -3,10 +3,11 @@
         "browser": true,
         "es2021": true,
         "node": true,
-        "karma": true
+        "jasmine": true
     },
     "extends": [
-        "standard"
+        "standard",
+        "plugin:codeceptjs/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 12,

@@ -1,5 +1,5 @@
 class CustomHero extends HTMLElement {
-  render() {
+  render () {
     this.innerHTML = `
       <div class="hero">
         <div class='overlay'></div>
@@ -18,4 +18,3 @@ class CustomHero extends HTMLElement {
 }
 
 customElements.define('custom-hero', CustomHero)
-
