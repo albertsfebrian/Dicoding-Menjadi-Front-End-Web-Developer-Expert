@@ -1,5 +1,5 @@
 class CustomHero extends HTMLElement {
-  render () {
+  render() {
     this.innerHTML = `
       <div class="hero">
         <div class='overlay'></div>
@@ -8,10 +8,14 @@ class CustomHero extends HTMLElement {
             <h1>Temukan makanan & minuman terbaik di sini</h1>
           </div>
         </div>
-        <img src="/images/hero.jpg" alt="Hero Image">
+        <picture>
+          <source media="(min-width: 768px)" srcset="/images/hero-large.jpg">
+          <img src="/images/hero-small.jpg" alt="Hero Image"></img>
+        </picture>
       </div>
     `
   }
 }
 
 customElements.define('custom-hero', CustomHero)
+

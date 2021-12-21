@@ -12,6 +12,16 @@
   @media screen and (min-width: $min_md_device) {
     height: 450px;
   }
+
+  picture{
+    height: 300px;
+    width: 500px;
+
+    source {
+      height: 100%;
+      width: 100%;
+    }
+  }
   img {
     height: 100%;
     width: 100%;

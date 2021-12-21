@@ -1,19 +1,19 @@
 import RestaurantSource from '../../data/restaurant-source'
-import { createRestaurantCardTemplate } from '../templates/template-creator'
+import { createRestaurantCardTemplate, createSkeletonList } from '../templates/template-creator'
 
 const Home = {
   async render () {
     return `
       <article>
         <span class="title" tabindex="0">Rekomendasi Restoran</span>
-        <div class="loading-container" id="loading-home"><div class="loader"></div></div>
         <section id="restaurant-list"></section>
+        <section id="restaurant-loading-list">${createSkeletonList(20)}</section>
       </article>
     `
   },
 
   async afterRender () {
-    const loadingContainer = document.querySelector('#loading-home')
+    const loadingContainer = document.querySelector('#restaurant-loading-list')
     const restaurantContainer = document.querySelector('#restaurant-list')
     try {
       const restaurant = await RestaurantSource.restaurantList()

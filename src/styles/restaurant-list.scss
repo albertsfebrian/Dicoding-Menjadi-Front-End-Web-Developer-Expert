@@ -1,8 +1,18 @@
-#restaurant-list {
+@mixin homeList() {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  
+  @media screen and (min-width: $min_md_device) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: $min_lg_device) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
+#restaurant-list {
+  @include homeList();
   .card {
     a {
       color: inherit;
@@ -48,11 +58,14 @@
       -webkit-line-clamp: 5;
     }
   }
+}
 
-  @media screen and (min-width: $min_md_device) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media screen and (min-width: $min_lg_device) {
-    grid-template-columns: repeat(3, 1fr);
+#restaurant-loading-list {
+  @include homeList();
+  .card-loader {
+    border-radius: 0.25rem;
+    width: 100%;
+    height: 443px;
+    background-color: $loader-color;
   }
 }

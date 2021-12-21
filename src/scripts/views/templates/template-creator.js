@@ -14,7 +14,7 @@ export const createRestaurantCardTemplate = (restaurant) => {
             <i class="fas fa-map-marker-alt"></i>
             <span tabindex="0">${city}</span>
           </div>
-          <img crossorigin="anonymous" src=${imageUrl} class="card-img-top" alt=${altImage}>
+          <img crossorigin="anonymous" data-src=${imageUrl} class="card-img-top lazyload" alt=${altImage}>
         </div>
         <div class="card-body">
           <span class="card-title" tabindex="0">${name}</span>
@@ -76,8 +76,40 @@ export const createLikeButton = () => `
   </button>
 `
 
-export const createLikedButton = () => `
+export const createUnlikeButton = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like-button">
     <i class="fas fa-heart fa-2x"></i>
   </button>
 `
+
+export const createSkeletonList = (count) => {
+  let renderSkeleton = '';
+  [...Array(count)].forEach( item => {
+    renderSkeleton += `<div class="card-loader"></div>`
+  })
+  return renderSkeleton
+}
+
+export const createRestaurantDetailLoader = () => `
+  <div class="detail-image"></div>
+  <div class="title"></div>
+  <div class="card"></div>
+`
+
+export const createMenuSectionLoader = (title, count) => {
+  return `
+    <span class="title" tabindex="0">${title}</span>
+    <div class="restaurant-menu">
+      ${createSkeletonList(count)}
+    </div>
+  `
+}
+
+export const createReviewSectionLoader = (count) => {
+  return `
+    <span class="title" tabindex="0">Review</span>
+    <div class="restaurant-review" id="restaurant-reviews">
+      ${createSkeletonList(count)}
+    </div>
+  `
+}
