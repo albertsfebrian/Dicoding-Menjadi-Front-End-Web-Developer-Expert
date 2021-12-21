@@ -1,0 +1,74 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+
+  @media (min-width: $min_sm_device) {
+    & {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: $min_md_device) {
+    & {
+      max-width: 720px;
+      padding: 0;
+    }
+  }
+  @media (min-width: $min_lg_device) {
+    & {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: $min_xl_device) {
+    & {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: $min_xxl_device) {
+    & {
+      max-width: 1320px;
+    }
+  }
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+
+  & .card-body {
+    padding: 1rem;
+    & .card-title {
+      display: block;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.input-group {
+  padding: 1rem 0;
+  display: flex;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+
+  button {
+    @include centerFlex;
+    cursor: pointer;
+    height: 44px;
+    background-color: #6c757d;
+    border: #6c757d;
+    border-radius: 0 0.25rem 0.25rem 0;
+    padding: 0.25rem 1rem;
+    color: white;
+  }
+}

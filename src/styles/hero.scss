@@ -1,0 +1,45 @@
+.hero {
+  height: 300px;
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65));
+  }
+
+  @media screen and (min-width: $min_md_device) {
+    height: 450px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include centerFlex;
+    flex-direction: column;
+    color: white;
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      @media screen and (min-width: $min_md_device) {
+        font-size: 2rem;
+      }
+    }
+    .search-container {
+      @include centerFlex;
+      #hero-search-bar {
+        width: 95%;
+        max-width: 500px;
+      }
+    }
+  }
+}

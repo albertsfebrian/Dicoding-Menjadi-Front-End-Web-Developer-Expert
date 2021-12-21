@@ -1,98 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Nunito:wght@400;700&display=swap");
-$primary-color: #1e1e24;
-$primary-text-color: black;
-$primary-text-color-hover: rgb(155, 151, 151);
-$logo-color: #08145c;
-
-$min_sm_device: "576px";
-$min_md_device: "768px";
-$min_lg_device: "992px";
-$min_xl_device: "1200px";
-$min_xxl_device: "1400px";
-
-
-@mixin centerFlex($justify: center) {
-  display: flex;
-  justify-content: $justify;
-  align-items: center;
-}
-
-@mixin btnTransparent() {
-  @include centerFlex;
-  background-color: transparent;
-  border: transparent;
-  height: 44px;
-  width: 44px;
-}
-
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding: 1rem;
-
-  @media (min-width: $min_sm_device) {
-    & {
-      max-width: 540px;
-    }
-  }
-  @media (min-width: $min_md_device) {
-    & {
-      max-width: 720px;
-      padding: 0;
-    }
-  }
-  @media (min-width: $min_lg_device) {
-    & {
-      max-width: 960px;
-    }
-  }
-  @media (min-width: $min_xl_device) {
-    & {
-      max-width: 1140px;
-    }
-  }
-  @media (min-width: $min_xxl_device) {
-    & {
-      max-width: 1320px;
-    }
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 0.25rem;
-
-  & .card-body {
-    padding: 1rem;
-  }
-}
-
-.input-group {
-  padding: 1rem 0;
-  display: flex;
-  width: 100%;
-
-  input {
-    width: 100%;
-    padding: 0.25rem 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem 0 0 0.25rem;
-  }
-
-  button {
-    @include centerFlex;
-    cursor: pointer;
-    height: 44px;
-    background-color: #6c757d;
-    border: #6c757d;
-    border-radius: 0 0.25rem 0.25rem 0;
-    padding: 0.25rem 1rem;
-    color: white;
-  }
-}
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'loader';
+@import 'header';
+@import 'hero';
+@import 'restaurant-list';
+@import 'restaurant-detail';
+@import 'like';
+@import 'footer';
 
 * {
   padding: 0;
@@ -101,10 +17,17 @@ $min_xxl_device: "1400px";
   font-family: "Nunito", sans-serif;
 }
 
-body,
 html {
-  width: 100%;
-  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+#main-content {
+  padding-bottom: 3.5rem;
 }
 
 .skip-link {
@@ -120,225 +43,14 @@ html {
   }
 }
 
-nav {
-  @include centerFlex($justify: space-between);
-  height: 70px;
-
-  .logo {
-    padding: 1rem 0;
-    color: $logo-color;
-    font-family: "Courgette", cursive;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  #hamburger-btn {
-    @include btnTransparent;
-  }
-
-  #menu-list {
-    display: none;
-    margin: 0;
-    padding: 0;
-
-    #close-btn {
-      display: none;
-    }
-    .menu-item {
-      list-style-type: none;
-      padding: 0 1rem;
-
-      a {
-        padding: 1rem;
-        text-decoration: none;
-        color: $primary-text-color;
-        font-weight: bold;
-        transition: all ease 300ms;
-        &:hover {
-          color: $primary-text-color-hover;
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    #menu-list {
-      z-index: 10;
-      position: fixed;
-      top: 0;
-      left: -100%;
-      height: 100%;
-      width: 100%;
-      background-color: $primary-color;
-      @include centerFlex;
-      flex-direction: column;
-      transition: all ease 300ms;
-
-      &.open {
-        left: 0;
-      }
-
-      #close-btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        @include btnTransparent;
-        color: white;
-      }
-
-      .menu-item {
-        padding: 1rem;
-        a {
-          color: white;
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  @media screen and (min-width: $min_md_device) {
-    #hamburger-btn {
-      display: none;
-    }
-    #menu-list {
-      @include centerFlex;
-    }
-  }
-}
-
-.hero {
-  height: 300px;
-  position: relative;
-
-  .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(270deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65));
-  }
-
-  @media screen and (min-width: $min_md_device) {
-    height: 450px;
-  }
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .hero-content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    @include centerFlex;
-    flex-direction: column;
-    color: white;
-
-    h1 {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.5rem;
-      @media screen and (min-width: $min_md_device) {
-        font-size: 2rem;
-      }
-    }
-    .search-container {
-      @include centerFlex;
-      #hero-search-bar {
-        width: 95%;
-        max-width: 500px;
-      }
-    }
-  }
-}
-
 .title {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem;
   text-align: center;
+  display: block;
 }
 
 article {
   padding: 1rem 0;
-}
-
-#city-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  .card {
-    cursor: pointer;
-    .card-body {
-      text-align: center;
-    }
-  }
-  @media screen and (min-width: $min_md_device) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-#restaurant-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-
-  .card {
-    cursor: pointer;
-    .card-image {
-      position: relative;
-      height: 250px;
-      overflow: hidden;
-      .card-location {
-        z-index: 1;
-        position: absolute;
-        top: 1rem;
-        right: 0;
-        background-color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 8px 0 0 8px;
-      }
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-
-    img {
-      transition: all ease 300ms;
-      height: 100%;
-      width: 100%;
-      &:hover {
-        transform: scale(1.25);
-      }
-    }
-
-    .truncate {
-      word-wrap: break-word;
-      white-space: normal;
-      overflow: hidden;
-      display: -webkit-box;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5;
-    }
-  }
-
-  @media screen and (min-width: $min_md_device) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media screen and (min-width: $min_lg_device) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-footer {
-  margin-top: 1rem;
-  width: 100%;
-  text-align: center;
-  background-color: $primary-color;
-  color: white;
-  padding: 1rem;
 }

@@ -1,0 +1,17 @@
+#likeButtonContainer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+
+  .like-button{
+    @include centerFlex();
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 1000px;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+  }
+}

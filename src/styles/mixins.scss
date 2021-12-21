@@ -1,0 +1,13 @@
+@mixin centerFlex($justify: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+@mixin btnTransparent() {
+  @include centerFlex;
+  background-color: transparent;
+  border: transparent;
+  height: 44px;
+  width: 44px;
+}

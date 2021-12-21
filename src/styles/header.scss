@@ -1,0 +1,86 @@
+nav {
+  @include centerFlex($justify: space-between);
+  height: 70px;
+
+  .logo {
+    padding: 1rem 0;
+    color: $logo-color;
+    font-family: "Courgette", cursive;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  #hamburger-btn {
+    @include btnTransparent;
+  }
+
+  #menu-list {
+    display: none;
+    margin: 0;
+    padding: 0;
+
+    #close-btn {
+      display: none;
+    }
+    .menu-item {
+      list-style-type: none;
+      padding: 0 1rem;
+
+      a {
+        padding: 1rem;
+        text-decoration: none;
+        color: $primary-text-color;
+        font-weight: bold;
+        transition: all ease 300ms;
+        &:hover {
+          color: $primary-text-color-hover;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    #menu-list {
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: -75%;
+      height: 100%;
+      width: 75%;
+      background-color: $primary-color;
+      @include centerFlex;
+      flex-direction: column;
+      transition: all ease 300ms;
+
+      &.open {
+        left: 0;
+      }
+
+      #close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include btnTransparent;
+        color: white;
+      }
+
+      .menu-item {
+        padding: 1rem;
+        a {
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $min_md_device) {
+    #hamburger-btn {
+      display: none;
+    }
+    #menu-list {
+      @include centerFlex;
+    }
+  }
+}

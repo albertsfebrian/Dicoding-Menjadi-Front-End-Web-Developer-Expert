@@ -1,0 +1,32 @@
+.loading-container {
+  @include centerFlex;
+  margin: 1rem;
+  width: 100%;
+
+  .loader {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  
+    &:after {
+      content: '';
+      margin: 8px;
+      width: 64px;
+      height: 64px;
+      display: block;
+      border-radius: 50%;
+      border: 6px solid #000000;
+      border-color: #000000 transparent #000000 transparent;
+      animation: spin 1.2s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

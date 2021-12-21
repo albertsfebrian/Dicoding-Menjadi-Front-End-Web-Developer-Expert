@@ -1,0 +1,58 @@
+#restaurant-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  .card {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    cursor: pointer;
+    .card-image {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      .card-location {
+        z-index: 1;
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        background-color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 8px 0 0 8px;
+      }
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    img {
+      transition: all ease 300ms;
+      height: 100%;
+      width: 100%;
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+
+    .truncate {
+      word-wrap: break-word;
+      white-space: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+    }
+  }
+
+  @media screen and (min-width: $min_md_device) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: $min_lg_device) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
